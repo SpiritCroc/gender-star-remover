@@ -1,0 +1,46 @@
+{
+    "extensionName": {
+        "message": "Gender-Sternchen-Entferner",
+        "description": "Name of the extension."
+    },
+    "extensionDescription": {
+        "message": "Entfernt Gender-Strenchen und ähnliche Konstrukte, welche den Lesefluss stören, und ersetzt sie mit etwas anderem.",
+        "description": "Description of the extension."
+    },
+    "labelSingular": {
+        "message": "Singular-Ersatz:",
+        "description": "Label for singular replacement strings."
+    },
+    "labelPlural": {
+        "message": "Plural-Ersatz:",
+        "description": "Label for plural replacement strings."
+    },
+    "headerExample": {
+        "message": "Beispiel",
+        "description": "Header for example sections."
+    },
+    "headerSave": {
+        "message": "Änderungen speichern",
+        "description": "Header for save changes section."
+    },
+    "noteSave": {
+        "message": "Anmerkung: Um Änderungen auf bereits geöffnete Webseiten anzuwenden, müssen diese neu geladen werden.",
+        "description": "Note above save button."
+    },
+    "buttonSave": {
+        "message": "Speichern",
+        "description": "Save button text."
+    },
+    "headerRestore": {
+        "message": "Standardeinstellungen wiederherstellen",
+        "description": "Restore header text."
+    },
+    "buttonRestore": {
+        "message": "Wiederherstellen",
+        "description": "Restore button text."
+    },
+    "headerGerman": {
+        "message": "Deutsch",
+        "description": "Header for the german settings section."
+    }
+}

@@ -1,0 +1,38 @@
+{
+
+  "manifest_version": 2,
+  "name": "__MSG_extensionName__",
+  "version": "1.0",
+
+  "description": "__MSG_extensionDescription__",
+
+  "default_locale": "en",
+
+  "icons": {
+    "16": "icons/icon_16dp.png",
+    "32": "icons/icon_32dp.png",
+    "48": "icons/icon_48dp.png",
+    "96": "icons/icon_96dp.png",
+    "128": "icons/icon_128dp.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["gremove.js"]
+    }
+  ],
+
+  "options_ui": {
+    "page": "options.html"
+  },
+
+  "permissions": ["storage"],
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "gremove@spiritcroc.de"
+    }
+  }
+
+}

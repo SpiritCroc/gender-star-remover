@@ -1,0 +1,46 @@
+{
+    "extensionName": {
+        "message": "Gender-Star-Remover",
+        "description": "Name of the extension."
+    },
+    "extensionDescription": {
+        "message": "Removes gender stars and similar constructions that disturb the flow of reading, and replaces them with something else. Currently, only German constructions are handled.",
+        "description": "Description of the extension."
+    },
+    "labelSingular": {
+        "message": "Singular replacement:",
+        "description": "Label for singular replacement strings."
+    },
+    "labelPlural": {
+        "message": "Plural replacement:",
+        "description": "Label for plural replacement strings."
+    },
+    "headerExample": {
+        "message": "Example",
+        "description": "Header for example sections."
+    },
+    "headerSave": {
+        "message": "Save changes",
+        "description": "Header for save changes section."
+    },
+    "noteSave": {
+        "message": "Note: to apply changed options to already open web pages, you need to reload them.",
+        "description": "Note above save button."
+    },
+    "buttonSave": {
+        "message": "Save",
+        "description": "Save button text."
+    },
+    "headerRestore": {
+        "message": "Restore default values",
+        "description": "Restore header text."
+    },
+    "buttonRestore": {
+        "message": "Restore default values",
+        "description": "Restore button text."
+    },
+    "headerGerman": {
+        "message": "German",
+        "description": "Header for the german settings section."
+    }
+}

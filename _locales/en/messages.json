@@ -15,6 +15,10 @@
         "message": "Plural replacement:",
         "description": "Label for plural replacement strings."
     },
+    "labelNeutralArticlePronouns": {
+        "message": "Replace articles and pronouns with neutral alternatives",
+        "description": "Setting description for article and pronoun substitution"
+    },
     "headerExample": {
         "message": "Example",
         "description": "Header for example sections."

@@ -2,7 +2,8 @@ function saveOptions(e) {
   e.preventDefault();
   browser.storage.sync.set({
     singular_de: document.querySelector("#singular_de").value,
-    plural_de: document.querySelector("#plural_de").value
+    plural_de: document.querySelector("#plural_de").value,
+    neutral_articles_de: document.getElementById("neutral_articles_de").checked
   });
 }
 
@@ -17,6 +18,7 @@ function restoreOptions() {
   function setOptions(result) {
     document.querySelector("#singular_de").value = result.singular_de;
     document.querySelector("#plural_de").value = result.plural_de;
+    document.getElementById("neutral_articles_de").checked = result.neutral_articles_de;
     updatePreview_de(result);
   }
 
@@ -24,7 +26,11 @@ function restoreOptions() {
     console.log(`Error: ${error}`);
   }
 
-  let getting = browser.storage.sync.get({"singular_de": "wesen", "plural_de": "wesen"});
+  let getting = browser.storage.sync.get({
+    "singular_de": "wesen",
+    "plural_de": "wesen",
+    "neutral_articles_de": true
+  });
   getting.then(setOptions, onError);
 }
 
@@ -34,6 +40,8 @@ function restoreOptions() {
 function updatePreview_de(e) {
     document.getElementById("ex_sg_de").innerText = document.getElementById("singular_de").value;
     document.getElementById("ex_pl_de").innerText = document.getElementById("plural_de").value;
+    document.getElementById("ex_articles_de").innerText =
+                document.getElementById("neutral_articles_de").checked ? "Das" : "Der*die";
 }
 
 
@@ -47,7 +55,8 @@ id_msg_map = {
     "header_de": "headerGerman",
     "header_example_de": "headerExample",
     "label_singular_de": "labelSingular",
-    "label_plural_de": "labelPlural"
+    "label_plural_de": "labelPlural",
+    "label_neutral_articles_de": "labelNeutralArticlePronouns",
 }
 for (var id in id_msg_map) {
     document.getElementById(id).innerText = browser.i18n.getMessage(id_msg_map[id]);
@@ -59,3 +68,4 @@ document.getElementById("replacement_form").addEventListener("submit", saveOptio
 document.getElementById("restore_form").addEventListener("submit", clearOptions);
 document.getElementById("singular_de").addEventListener("input", updatePreview_de);
 document.getElementById("plural_de").addEventListener("input", updatePreview_de);
+document.getElementById("neutral_articles_de").addEventListener("input", updatePreview_de);

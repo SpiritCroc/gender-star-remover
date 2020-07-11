@@ -23,14 +23,14 @@ function doReplace(options) {
     getAllTextNodes().forEach(function(node){
         node.nodeValue = node.nodeValue
                 // Plural first for maximum munch
-                .replace(/[\*:_\/]innen/gi, replacement_pl_de)
-                .replace(/[\*:_\/]in/gi, replacement_sg_de)
+                .replace(/[\*:_\/](-)?innen/gi, replacement_pl_de)
+                .replace(/[\*:_\/](-)?in/gi, replacement_sg_de)
                 // bracket variants if appended to word (without space in between)
-                .replace(/([a-zäöüß])[\(\[]innen[\)\]]/gi, "$1" + replacement_pl_de)
-                .replace(/([a-zäöüß])[\(\[]in[\)\]]/gi, "$1" + replacement_sg_de)
+                .replace(/([a-zäöüß])[\(\[](-)?innen[\)\]]/gi, "$1" + replacement_pl_de)
+                .replace(/([a-zäöüß])[\(\[](-)?in[\)\]]/gi, "$1" + replacement_sg_de)
                 // directly appended with capitalization variant
-                .replace(/([a-zäöüß])Innen/g, "$1" + replacement_pl_de)
-                .replace(/([a-zäöüß])In/g, "$1" + replacement_sg_de);
+                .replace(/([a-zäöüß])(-)?Innen/g, "$1" + replacement_pl_de)
+                .replace(/([a-zäöüß])(-)?In/g, "$1" + replacement_sg_de);
         // Articles and Pronouns
         if (neutral_articles_de) {
             node.nodeValue = node.nodeValue

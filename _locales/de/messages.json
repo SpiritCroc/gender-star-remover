@@ -19,6 +19,10 @@
         "message": "Replace articles and pronouns with neutral alternatives",
         "description": "Setting description for article and pronoun substitution"
     },
+    "labelBinnenI": {
+        "message": "Ersetze erkannte Binnen-Is\n(verändert womöglich fälschlicherweise auch Wörter wie \"SignIn\", \"getInput\", oder \"Bundes-Innenminister\")",
+        "description": "Setting description for whether to replace Binnen-I "
+    },
     "headerExample": {
         "message": "Beispiel",
         "description": "Header for example sections."

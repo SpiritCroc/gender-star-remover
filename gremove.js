@@ -23,6 +23,7 @@ function doReplace(options) {
     replacement_sg_de = options.singular_de.replace("$", "$$$$");
     replacement_pl_de = options.plural_de.replace("$", "$$$$");
     neutral_articles_de = options.neutral_articles_de;
+    binnen_i_de = options.binnen_i_de;
     getAllTextNodes().forEach(function(node){
         replacement = node.nodeValue;
         replacement = replacement
@@ -31,10 +32,13 @@ function doReplace(options) {
                 .replace(/[\*:_\/](-)?in/gi, replacement_sg_de)
                 // bracket variants if appended to word (without space in between)
                 .replace(/([a-zäöüß])[\(\[](-)?innen[\)\]]/gi, "$1" + replacement_pl_de)
-                .replace(/([a-zäöüß])[\(\[](-)?in[\)\]]/gi, "$1" + replacement_sg_de)
-                // directly appended with capitalization variant
-                .replace(/([a-zäöüß])(-)?Innen/g, "$1" + replacement_pl_de)
-                .replace(/([a-zäöüß])(-)?In/g, "$1" + replacement_sg_de);
+                .replace(/([a-zäöüß])[\(\[](-)?in[\)\]]/gi, "$1" + replacement_sg_de);
+        // Binnen-I
+        if (binnen_i_de) {
+            replacement = replacement
+                    .replace(/([a-zäöüß])(-)?Innen/g, "$1" + replacement_pl_de)
+                    .replace(/([a-zäöüß])(-)?In/g, "$1" + replacement_sg_de);
+        }
         // Articles and Pronouns
         if (neutral_articles_de) {
             replacement = replacement
@@ -70,6 +74,7 @@ function onError(error) {
 let getting = browser.storage.sync.get({
     "singular_de": "wesen",
     "plural_de": "wesen",
-    "neutral_articles_de": true
+    "neutral_articles_de": true,
+    "binnen_i_de": false,
 });
 getting.then(doReplace, onError);

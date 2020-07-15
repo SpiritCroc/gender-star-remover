@@ -6,7 +6,7 @@
 
   "description": "__MSG_extensionDescription__",
 
-  "default_locale": "en",
+  "default_locale": "de",
 
   "icons": {
     "16": "icons/icon_16dp.png",

@@ -5,6 +5,7 @@ function saveOptions(e) {
     plural_de: document.querySelector("#plural_de").value,
     neutral_articles_de: document.getElementById("neutral_articles_de").checked,
     binnen_i_de: document.getElementById("binnen_i_de").checked,
+    aggressive_de: document.getElementById("aggressive_de").checked,
   });
 }
 
@@ -21,6 +22,7 @@ function restoreOptions() {
     document.querySelector("#plural_de").value = result.plural_de;
     document.getElementById("neutral_articles_de").checked = result.neutral_articles_de;
     document.getElementById("binnen_i_de").checked = result.binnen_i_de;
+    document.getElementById("aggressive_de").checked = result.aggressive_de;
     updatePreview_de(result);
   }
 
@@ -32,7 +34,8 @@ function restoreOptions() {
     "singular_de": "wesen",
     "plural_de": "wesen",
     "neutral_articles_de": true,
-    "binnen_i_de": false
+    "binnen_i_de": false,
+    "aggressive_de": false
   });
   getting.then(setOptions, onError);
 }
@@ -49,6 +52,8 @@ function updatePreview_de(e) {
                 document.getElementById("neutral_articles_de").checked ? "Das" : "Der*die";
     document.getElementById("ex_binnen_i_sg_de").innerText =
                 document.getElementById("binnen_i_de").checked ? replacement_sg_de : "In";
+    document.getElementById("ex_aggressive_pl_de").innerText =
+                document.getElementById("aggressive_de").checked ? replacement_pl_de : "/innen";
 }
 
 
@@ -65,6 +70,7 @@ id_msg_map = {
     "label_plural_de": "labelPlural",
     "label_neutral_articles_de": "labelNeutralArticlePronouns",
     "label_binnen_i_de": "labelBinnenI",
+    "label_aggressive_de": "labelAggressive",
 }
 for (var id in id_msg_map) {
     document.getElementById(id).innerText = browser.i18n.getMessage(id_msg_map[id]);
@@ -78,3 +84,4 @@ document.getElementById("singular_de").addEventListener("input", updatePreview_d
 document.getElementById("plural_de").addEventListener("input", updatePreview_de);
 document.getElementById("neutral_articles_de").addEventListener("input", updatePreview_de);
 document.getElementById("binnen_i_de").addEventListener("input", updatePreview_de);
+document.getElementById("aggressive_de").addEventListener("input", updatePreview_de);

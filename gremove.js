@@ -24,12 +24,26 @@ function doReplace(options) {
     replacement_pl_de = options.plural_de.replace("$", "$$$$");
     neutral_articles_de = options.neutral_articles_de;
     binnen_i_de = options.binnen_i_de;
+    aggressive_de = options.aggressive_de;
     getAllTextNodes().forEach(function(node){
         replacement = node.nodeValue;
+        if (aggressive_de) {
+            // Aggressive mode features '/' and '_' in addition to normal mode substitutions,
+            // and also variants that replace 'i' with '!' or 'ï'
+            replacement = replacement
+                    // Plural first for maximum munch
+                    .replace(/[\*:_\/](-)?innen/gi, replacement_pl_de)
+                    .replace(/[\*:_\/](-)?in/gi, replacement_sg_de)
+                    // replaced 'i' variants
+                    .replace(/[!ï/]nnen/gi, replacement_pl_de)
+                    .replace(/[!ï/]n/gi, replacement_sg_de);
+        } else {
+            replacement = replacement
+                    // Plural first for maximum munch
+                    .replace(/[\*:](-)?innen/gi, replacement_pl_de)
+                    .replace(/[\*:](-)?in/gi, replacement_sg_de);
+        }
         replacement = replacement
-                // Plural first for maximum munch
-                .replace(/[\*:_\/](-)?innen/gi, replacement_pl_de)
-                .replace(/[\*:_\/](-)?in/gi, replacement_sg_de)
                 // bracket variants if appended to word (without space in between)
                 .replace(/([a-zäöüß])[\(\[](-)?innen[\)\]]/gi, "$1" + replacement_pl_de)
                 .replace(/([a-zäöüß])[\(\[](-)?in[\)\]]/gi, "$1" + replacement_sg_de);
@@ -76,5 +90,6 @@ let getting = browser.storage.sync.get({
     "plural_de": "wesen",
     "neutral_articles_de": true,
     "binnen_i_de": false,
+    "aggressive_de": false,
 });
 getting.then(doReplace, onError);

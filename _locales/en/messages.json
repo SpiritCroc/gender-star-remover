@@ -23,6 +23,10 @@
         "message": "Replace detected Binnen-Is\n(might erroneously also modify words like \"SignIn\", \"getInput\", or \"Bundes-Innenminister\")",
         "description": "Setting description for whether to replace Binnen-I "
     },
+    "labelAggressive": {
+        "message": "Replace more constructions that are prone to erroneous detection like \".../in\", \"..._in\", \"...!n\", and \"...ïn\"",
+        "description": "Setting description for whether to enable aggressive substitutions "
+    },
     "headerExample": {
         "message": "Example",
         "description": "Header for example sections."

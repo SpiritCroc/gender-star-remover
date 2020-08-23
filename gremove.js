@@ -79,20 +79,17 @@ function doReplace(options) {
                 replacement = replacement
                         // Plural first for maximum munch
                         .replace(/[\*:_\/](-)?in(\u00AD)?nen/gi, replacement_pl_de)
-                        .replace(/[\*:_\/](-)?in/gi, replacement_sg_de)
-                        // replaced 'i' variants
-                        .replace(/[!ï/]n(\u00AD)?nen/gi, replacement_pl_de)
-                        .replace(/[!ï/]n/gi, replacement_sg_de);
+                        .replace(/[\*:_\/](-)?in/gi, replacement_sg_de);
             } else {
                 replacement = replacement
                         // Plural first for maximum munch
                         .replace(/[\*:](-)?in(\u00AD)?nen/gi, replacement_pl_de)
-                        .replace(/[\*:](-)?in/gi, replacement_sg_de)
-                        // replaced 'i' variants
-                        .replace(/[!ï/]n(\u00AD)?nen/gi, replacement_pl_de)
-                        .replace(/[!ï/]n/gi, replacement_sg_de);
+                        .replace(/[\*:](-)?in/gi, replacement_sg_de);
             }
             replacement = replacement
+                    // replaced 'i' variants
+                    .replace(/[!ï/]n(\u00AD)?nen/gi, replacement_pl_de)
+                    .replace(/[!ï/]n/gi, replacement_sg_de)
                     // bracket variants if appended to word (without space in between)
                     .replace(/([a-zäöüß\u00AD])[\(\[](-)?in(\u00AD)?nen[\)\]]/gi, "$1" + replacement_pl_de)
                     .replace(/([a-zäöüß\u00AD])[\(\[](-)?in[\)\]]/gi, "$1" + replacement_sg_de);

@@ -15,7 +15,7 @@ $(EXTENSION_OUT): $(EXTENSION_CONTENT)
 
 debug: web-ext
 
-web-ext:
+web-ext: $(EXTENSION_CONTENT)
 	web-ext run
 
 clean:

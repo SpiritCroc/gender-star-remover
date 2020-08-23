@@ -6,6 +6,7 @@ function saveOptions(e) {
     neutral_articles_de: document.getElementById("neutral_articles_de").checked,
     binnen_i_de: document.getElementById("binnen_i_de").checked,
     aggressive_de: document.getElementById("aggressive_de").checked,
+    lang_select_de: getSelection(document.getElementById("lang_select_de")),
   });
 }
 
@@ -13,6 +14,19 @@ function clearOptions(e) {
   e.preventDefault();
   browser.storage.sync.clear();
   location.reload();
+}
+
+function setSelection(element, choice) {
+    for (var opt, j = 0; opt = element.options[j]; j++) {
+        if (opt.value == choice) {
+            element.selectedIndex = j;
+            break;
+        }
+    }
+}
+
+function getSelection(element) {
+    return element.options[element.selectedIndex].value;
 }
 
 function restoreOptions() {
@@ -23,6 +37,7 @@ function restoreOptions() {
     document.getElementById("neutral_articles_de").checked = result.neutral_articles_de;
     document.getElementById("binnen_i_de").checked = result.binnen_i_de;
     document.getElementById("aggressive_de").checked = result.aggressive_de;
+    setSelection(document.getElementById("lang_select_de"), result.lang_select_de);
     updatePreview_de(result);
   }
 
@@ -35,7 +50,8 @@ function restoreOptions() {
     "plural_de": "wesen",
     "neutral_articles_de": true,
     "binnen_i_de": false,
-    "aggressive_de": false
+    "aggressive_de": false,
+    "lang_select_de": "unknown"
   });
   getting.then(setOptions, onError);
 }
@@ -71,6 +87,10 @@ id_msg_map = {
     "label_neutral_articles_de": "labelNeutralArticlePronouns",
     "label_binnen_i_de": "labelBinnenI",
     "label_aggressive_de": "labelAggressive",
+    "label_lang_select_de": "labelLangSelect",
+    "lang_select_de_strict": "langSelectStrictDe",
+    "lang_select_de_unknown": "langSelectUnknownAndDe",
+    "lang_select_de_all": "langSelectAll",
 }
 for (var id in id_msg_map) {
     document.getElementById(id).innerText = browser.i18n.getMessage(id_msg_map[id]);

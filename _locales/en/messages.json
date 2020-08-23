@@ -27,6 +27,22 @@
         "message": "Replace more constructions that are prone to erroneous detection like \".../in\", \"..._in\", \"...!n\", and \"...ïn\"",
         "description": "Setting description for whether to enable aggressive substitutions "
     },
+    "labelLangSelect": {
+        "message": "Treated texts:",
+        "description": "Setting description for how to respect the lang attribute"
+    },
+    "langSelectAll": {
+        "message": "All",
+        "description": "Ignore the lang tag"
+    },
+    "langSelectStrictDe": {
+        "message": "Only explicitely German texts",
+        "description": "Require explicit lang=de"
+    },
+    "langSelectUnknownAndDe": {
+        "message": "German and unspecified texts",
+        "description": "Require lang=de or lang unset"
+    },
     "headerExample": {
         "message": "Example",
         "description": "Header for example sections."

@@ -25,7 +25,23 @@
     },
     "labelAggressive": {
         "message": "Ersetze weitere Konstruktionen, welche mit höherer Wahrscheinlichkeit auch zu Fehl-Erkennungen führen, wie \".../in\", \"..._in\", \"...!n\" und \"...ïn\"",
-        "description": "Setting description for whether to enable aggressive substitutions "
+        "description": "Setting description for whether to enable aggressive substitutions"
+    },
+    "labelLangSelect": {
+        "message": "Behandelte Texte:",
+        "description": "Setting description for how to respect the lang attribute"
+    },
+    "langSelectAll": {
+        "message": "Alle",
+        "description": "Ignore the lang tag"
+    },
+    "langSelectStrictDe": {
+        "message": "Nur explizit deutsche",
+        "description": "Require explicit lang=de"
+    },
+    "langSelectUnknownAndDe": {
+        "message": "Deutsche und nicht weiter spezifizierte",
+        "description": "Require lang=de or lang unset"
     },
     "headerExample": {
         "message": "Beispiel",

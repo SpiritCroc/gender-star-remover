@@ -36,7 +36,7 @@
         "description": "Ignore the lang tag"
     },
     "langSelectStrictDe": {
-        "message": "Only explicitely German texts",
+        "message": "Only explicitly German texts",
         "description": "Require explicit lang=de"
     },
     "langSelectUnknownAndDe": {

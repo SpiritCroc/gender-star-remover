@@ -24,7 +24,7 @@
         "description": "Setting description for whether to replace Binnen-I "
     },
     "labelAggressive": {
-        "message": "Replace more constructions that are prone to erroneous detection like \".../in\", \"..._in\", \"...!n\", and \"...ïn\"",
+        "message": "Replace more constructions that are prone to erroneous detection like \".../in\" and \"..._in\"",
         "description": "Setting description for whether to enable aggressive substitutions "
     },
     "labelLangSelect": {

@@ -87,7 +87,10 @@ function doReplace(options) {
                 replacement = replacement
                         // Plural first for maximum munch
                         .replace(/[\*:](-)?innen/gi, replacement_pl_de)
-                        .replace(/[\*:](-)?in/gi, replacement_sg_de);
+                        .replace(/[\*:](-)?in/gi, replacement_sg_de)
+                        // replaced 'i' variants
+                        .replace(/[!ï/]nnen/gi, replacement_pl_de)
+                        .replace(/[!ï/]n/gi, replacement_sg_de);
             }
             replacement = replacement
                     // bracket variants if appended to word (without space in between)
